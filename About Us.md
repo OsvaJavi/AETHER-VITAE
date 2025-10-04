@@ -47,4 +47,3 @@ Collects and curates scientific data sources manually to feed the training datas
 To merge astrobiology, artificial intelligence, and data science in the search for life beyond Earth —
 transforming data into cosmic insight and curiosity into discovery.
 
-Would you like me to add a short “Project Overview” section next (to describe the repo’s purpose, tech stack, and objectives)? It’s great for visitors and helps structure your GitHub documentation professionally.
