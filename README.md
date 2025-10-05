@@ -150,8 +150,5 @@ This project is open source and available under the **MIT License**.
 * **Streamlit community** for their excellent tools.
 
 
----
 
-¿Quieres que le agregue una **sección visual** al README (por ejemplo, un banner o logo arriba y un gif del dashboard con ejemplo de búsqueda)? Puedo generarte un prompt para crear esas imágenes.
-```
 
