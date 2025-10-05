@@ -100,6 +100,3 @@ Este proyecto es de código abierto y está disponible bajo la licencia MIT.
 NASA por proporcionar acceso a las publicaciones científicas
 Groq por su API ultrarrápida de LLMs
 Comunidad de Streamlit por sus excelentes herramientas
-
-📧 Contacto
-¿Preguntas o sugerencias? Abre un issue en GitHub o contáctame en [tu-email]
