@@ -1,4 +1,3 @@
-Perfecto 🚀 Aquí tienes el **README.md** listo para subir a tu repositorio en GitHub, con formato limpio, profesional y markdown completo:
 
 ```markdown
 # 🚀 Space Biology Knowledge Engine – NASA Challenge  
