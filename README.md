@@ -1,102 +1,157 @@
-🚀 Motor de Conocimiento de Biología Espacial - NASA Challenge
-📋 Descripción del Proyecto
-Motor de búsqueda inteligente basado en IA que permite explorar y analizar las 608 publicaciones científicas de la NASA sobre biología espacial. Utiliza búsqueda semántica, resúmenes automatizados y extracción de entidades clave para facilitar el acceso al conocimiento científico.
-✨ Características Principales
+Perfecto 🚀 Aquí tienes el **README.md** listo para subir a tu repositorio en GitHub, con formato limpio, profesional y markdown completo:
 
-🔍 Búsqueda Semántica: Encuentra publicaciones por significado, no solo por palabras clave
-📝 Resúmenes Automáticos: Genera resúmenes concisos de artículos científicos usando Groq + Llama
-🏷️ Extracción de Entidades: Identifica automáticamente organismos, condiciones espaciales y hallazgos clave
-📊 Visualizaciones Interactivas: Dashboard intuitivo con estadísticas y gráficos
-⚡ Respuestas en Tiempo Real: Procesamiento rápido gracias a embeddings pre-calculados
+```markdown
+# 🚀 Space Biology Knowledge Engine – NASA Challenge  
 
-🛠️ Tecnologías Utilizadas
+## 📋 Project Description  
+An **AI-powered intelligent search engine** designed to explore and analyze NASA’s **608 scientific publications on space biology**.  
+It leverages semantic search, automated summarization, and key entity extraction to make scientific knowledge more accessible and actionable.  
 
-Frontend: Streamlit
-IA/LLM: Groq API (Llama 3)
-Embeddings: Sentence Transformers (all-MiniLM-L6-v2)
-Procesamiento: Pandas, NumPy
-Lenguaje: Python 3.9+
+## ✨ Key Features  
 
-📁 Estructura del Proyecto
+🔍 **Semantic Search:** Find publications by meaning, not just keywords.  
+📝 **Automated Summaries:** Generate concise scientific article summaries using **Groq + Llama**.  
+🏷️ **Entity Extraction:** Automatically identify organisms, space conditions, and key findings.  
+📊 **Interactive Visualizations:** Intuitive dashboard with statistics and charts.  
+⚡ **Real-Time Responses:** Fast processing powered by precomputed embeddings.  
+
+## 🛠️ Technologies Used  
+
+- **Frontend:** Streamlit  
+- **AI/LLM:** Groq API (Llama 3)  
+- **Embeddings:** Sentence Transformers (`all-MiniLM-L6-v2`)  
+- **Data Processing:** Pandas, NumPy  
+- **Language:** Python 3.9+  
+
+
+## 📁 Project Structure  
+
 /nasa-knowledge-engine
 ├── data/
-│   ├── publicaciones.csv          # Datos de las 608 publicaciones
-│   └── corpus_embeddings.npy      # Embeddings pre-calculados
+│   ├── publications.csv          # NASA’s 608 space biology papers
+│   └── corpus_embeddings.npy      # Precomputed embeddings
 ├── notebooks/
-│   └── exploracion.ipynb          # Análisis exploratorio (opcional)
-├── app.py                         # Aplicación principal de Streamlit
-├── create_embeddings.py           # Script para generar embeddings
-├── requirements.txt               # Dependencias del proyecto
-├── .env                          # API keys (no subir a Git)
-├── .gitignore                    # Archivos a ignorar
-└── README.md                     # Este archivo
-🚀 Instalación y Configuración
-1. Clonar el Repositorio
-bashgit clone https://github.com/tu-usuario/nasa-knowledge-engine.git
+│   └── exploration.ipynb          # Exploratory analysis (optional)
+├── app.py                         # Main Streamlit app
+├── create_embeddings.py           # Embedding generation script
+├── requirements.txt               # Project dependencies
+├── .env                           # API keys (do not upload)
+├── .gitignore                     # Ignored files
+└── README.md                      # This file
+
+
+## 🚀 Installation & Setup  
+
+### 1. Clone the Repository  
+```bash
+git clone https://github.com/your-username/nasa-knowledge-engine.git
 cd nasa-knowledge-engine
-2. Crear Entorno Virtual
-bashpython -m venv venv
-source venv/bin/activate  # En Windows: venv\Scripts\activate
-3. Instalar Dependencias
-bashpip install -r requirements.txt
-4. Configurar API Key de Groq
-Crea un archivo .env en la raíz del proyecto:
-envGROQ_API_KEY=tu-api-key-aqui
+````
 
-💡 Obtén tu API key gratis en console.groq.com
+### 2. Create a Virtual Environment
 
-5. Preparar los Datos
-Coloca el archivo publicaciones.csv en la carpeta /data con las siguientes columnas:
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
 
-id: Identificador único
-title: Título de la publicación
-authors: Autores
-year: Año de publicación
-abstract_text: Resumen/abstract
-source_url: URL de la fuente (opcional)
+### 3. Install Dependencies
 
-6. Generar Embeddings
-bashpython create_embeddings.py
-Este proceso puede tardar algunos minutos. Generará el archivo corpus_embeddings.npy.
-7. Ejecutar la Aplicación
-bashstreamlit run app.py
-La aplicación se abrirá automáticamente en tu navegador en http://localhost:8501
-💡 Cómo Usar la Aplicación
+```bash
+pip install -r requirements.txt
+```
 
-Buscar: Escribe tu consulta en lenguaje natural (ej. "efectos de la microgravedad en plantas")
-Explorar Resultados: Revisa las publicaciones más relevantes ordenadas por similitud semántica
-Leer Resúmenes: Obtén un resumen de 3 puntos clave generado automáticamente
-Ver Entidades: Consulta organismos, condiciones y hallazgos extraídos automáticamente
-Filtrar: Usa la barra lateral para refinar tu búsqueda por año, organismo, etc.
+### 4. Configure Groq API Key
 
-📊 Ejemplos de Consultas
+Create a `.env` file in the project root:
 
-"¿Cómo afecta la radiación espacial al ADN?"
-"Experimentos con plantas en microgravedad"
-"Cambios en el sistema inmune de astronautas"
-"Estudios con C. elegans en el espacio"
+```env
+GROQ_API_KEY=your-api-key-here
+```
 
-🎯 Desafíos Técnicos Resueltos
+💡 Get your free API key at [console.groq.com](https://console.groq.com)
 
-Procesamiento Eficiente: Uso de embeddings pre-calculados y caché de Streamlit
-Prompt Engineering: Diseño de prompts específicos para resúmenes y extracción de entidades
-Búsqueda Semántica: Implementación de similitud coseno para resultados relevantes
-Experiencia de Usuario: Interface intuitiva con carga asíncrona y feedback visual
+### 5. Prepare the Data
 
-🚧 Próximas Mejoras
+Place your `publications.csv` file inside the `/data` folder with the following columns:
 
- Filtros avanzados por tipo de organismo y condición espacial
- Visualización de red de relaciones entre publicaciones
- Exportación de resultados en PDF
- Chat interactivo con el corpus completo
- Soporte multiidioma
+| Column        | Description           |
+| ------------- | --------------------- |
+| id            | Unique identifier     |
+| title         | Publication title     |
+| authors       | Authors               |
+| year          | Year of publication   |
+| abstract_text | Abstract or summary   |
+| source_url    | Source URL (optional) |
 
-👥 Autor
-Desarrollado para el NASA Space Biology Challenge - Guadalajara 2025
-📄 Licencia
-Este proyecto es de código abierto y está disponible bajo la licencia MIT.
-🙏 Agradecimientos
+### 6. Generate Embeddings
 
-NASA por proporcionar acceso a las publicaciones científicas
-Groq por su API ultrarrápida de LLMs
-Comunidad de Streamlit por sus excelentes herramientas
+```bash
+python create_embeddings.py
+```
+
+This process may take a few minutes and will generate the `corpus_embeddings.npy` file.
+
+### 7. Run the Application
+
+```bash
+streamlit run app.py
+```
+
+The app will automatically open in your browser at [http://localhost:8501](http://localhost:8501).
+
+## 💡 How to Use the App
+
+* **Search:** Type a natural language query (e.g. *“effects of microgravity on plants”*).
+* **Explore Results:** Browse the most relevant publications by semantic similarity.
+* **Read Summaries:** View automatically generated 3-point summaries.
+* **View Entities:** Check extracted organisms, space conditions, and key findings.
+* **Filter:** Refine your search by year, organism, or other criteria.
+
+
+## 📊 Example Queries
+
+* “How does space radiation affect DNA?”
+* “Plant experiments in microgravity”
+* “Changes in astronauts’ immune systems”
+* “Studies with *C. elegans* in space”
+
+
+## 🎯 Technical Challenges Solved
+
+* **Efficient Processing:** Precomputed embeddings and Streamlit caching.
+* **Prompt Engineering:** Tailored prompts for summarization and entity extraction.
+* **Semantic Search:** Cosine similarity implementation for relevant results.
+* **User Experience:** Intuitive UI with asynchronous loading and visual feedback.
+
+
+## 🚧 Future Improvements
+
+* Advanced filters for organism type and space condition.
+* Relationship network visualization between publications.
+* PDF export of search results.
+* Interactive chat with the full corpus.
+* Multi-language support.
+
+
+## 👥 Author
+
+Developed for the **NASA Space Biology Challenge – Guadalajara 2025**
+
+
+## 📄 License
+
+This project is open source and available under the **MIT License**.
+
+## 🙏 Acknowledgments
+
+* **NASA** for providing access to scientific publications.
+* **Groq** for its ultra-fast LLM API.
+* **Streamlit community** for their excellent tools.
+
+
+---
+
+¿Quieres que le agregue una **sección visual** al README (por ejemplo, un banner o logo arriba y un gif del dashboard con ejemplo de búsqueda)? Puedo generarte un prompt para crear esas imágenes.
+```
+
