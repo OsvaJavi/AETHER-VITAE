@@ -1,0 +1,31 @@
+This script solves the above problems.
+
+Uses BeautifulSoup to search for PDFs within the page.
+
+- If not found, skips with a message.
+
+- Saves PDFs with a numeric name + title.
+
+- Names PDFs as [number]_[title].pdf
+
+- Searches for real PDFs in HTML pages (scraping with BeautifulSoup). If a PDF link is found, download it.
+
+- Handles relative links
+
+- Avoids saving HTML pages as PDFs
+
+- Supports direct links and PMCs
+
+- Automatically detects PMC links and builds the direct URL to the PDF.
+
+- Avoids unnecessary scraping for PMCs, making the process faster.
+
+This script had the following download problems for one of the following reasons:
+
+Server restrictions: Some servers may block or limit automated downloads.
+
+Required HTTP Headers: This means the server may require specific headers (such as User-Agent, Referer, etc.) to allow the download.
+
+This didn't work because PubMed Central doesn't allow direct download of the PDF with a simple request to .../pdf/ because that URL returns a redirect or an intermediate page, not the actual PDF file.
+
+Redirects: The URL may redirect to another page or file, preventing direct download.

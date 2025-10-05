@@ -1,0 +1,55 @@
+This code works like this:
+
+- Three key pieces of information are defined:
+user = "jgalazka"
+repository = "SB_publications"
+file = "SB_publication_PMC.csv"
+- The folder where the files will be saved is also defined:
+output_folder = "C:\Users\ovcor\OneDrive\Desktop\x"
+- If the folder doesn't exist, the program creates it automatically.
+
+DOWNLOAD THE CSV FROM GITHUB
+
+- The program builds the "raw" URL of the file on GitHub:
+https://raw.githubusercontent.com/jgalazka/SB_publications/main/SB_publication_PMC.csv
+- It uses the "requests" library to download the CSV directly.
+- A "User-Agent" header is added to avoid the 403 error.
+- The CSV file is saved in the destination folder.
+
+READ AND ANALYZE THE CSV
+
+- The program uses the "pandas" library to read the CSV.
+- Automatically searches for columns containing links (http or https).
+- It also attempts to detect a column containing the paper titles.
+
+EXTRACTING LINKS AND TITLES
+
+- Iterates through each row of the CSV file.
+- Within each row, it searches for any web links with a regular expression.
+- Saves:
+• The URL of the link.
+• The title of the paper (if one exists).
+- This creates two parallel lists: one of URLs and one of titles.
+
+DOWNLOADING THE FILES
+
+- Iterates through all the URLs found.
+- Download each file with requests.get().
+- If the link doesn't have an extension, it's assumed to be a PDF.
+- Cleans invalid characters from the title so it can be used as a filename.
+- Assigns names of the form:
+title_number.pdf
+Example:
+1_Deep_Learning_for_Cancer.pdf
+2_Brain_Image_Analysis.pdf
+- Saves each downloaded file to the specified folder.
+
+COMPLETION
+- Displays messages in the console while downloading the files.
+- Indicates progress and errors (if a link fails).
+- Upon completion, displays:
+🎉 Process completed.
+
+The problem with this version is that many of the "links" obtained from the CSV are not direct links to an actual PDF, but rather to web pages or links that require authorization.
+
+So when the script downloads the content, it saves it as a PDF, but it's actually HTML or text, and the PDF reader displays an error.

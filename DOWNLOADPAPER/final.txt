@@ -1,0 +1,39 @@
+Added EdgeDriver to open each PMC link directly in headless mode.
+
+With the "plugins.always_open_pdf_externally" option set to True, Edge automatically downloads the PDF to the folder you define in "download.default_directory".
+
+We don't use requests.get() → this avoids header and cookie issues.
+
+The log saves the progress of each download.
+
+Selenium was installed. It controls a real browser (Edge in this case). It follows all redirects, cookies, and scripts, just like when you do it manually.
+
+***Improvements***
+
+-Download a single example PDF.
+
+-Wait for the download to finish.
+
+-Rename the file with the defined title (Example_Title_Paper.pdf).
+
+-Save a log to verify the process.
+
+-Verbose debugging: Prints a list of files before and after.
+
+-Shows which file was detected and renamed.
+
+-Renames each PDF with the paper title.
+
+-Prevents overwriting files.
+
+-Resaves a full log.
+
+-Wait explicitly until there is no .crdownload.
+
+-Validates MIME type to confirm the actual PDF.
+
+-Renames each PDF with the paper title.
+
+-Adds a numeric suffix if it already exists.
+
+-Prevents overwriting and file_not_found errors.
