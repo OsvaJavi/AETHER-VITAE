@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AETHER VITAE</title>
+    <meta name="description" content="Explorando la sinergia entre biotecnología y la frontera espacial.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        const IMAGES = {
+            background: './public/deep-space.png',  
+            life: './public/earth.png',      
+            iss: './public/iss.png',       
+            moon: './public/full-moon.png',       
+            mars: './public/mars.png'        
+        };
+        
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'space-900': '#0A0F29',
+                        'energy-500': '#7B4FFF',
+                        'bio-400': '#00FFB2',
+                        'ice-50': '#E8F6FF',
+                    },
+                    fontFamily: {
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .celestial-node {
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+        }
+        
+        .celestial-node:hover {
+            z-index: 20;
+        }
+        
+        .celestial-node:hover .node-content {
+            transform: scale(1.4);
+        }
+        
+        .node-content {
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .celestial-node img {
+            transition: all 0.4s ease;
+        }
+        
+        .celestial-node:hover img {
+            border-color: rgba(232, 246, 255, 0.8);
+            box-shadow: 0 0 30px 12px rgba(0, 255, 178, 0.4), 0 0 60px 20px rgba(0, 255, 178, 0.2);
+        }
+        
+        .celestial-node:hover .node-name {
+            color: #00FFB2;
+            text-shadow: 0 0 10px rgba(0, 255, 178, 0.5);
+        }
+        
+        .central-glow {
+            animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            box-shadow: 0 0 35px 10px rgba(0, 255, 178, 0.2);
+        }
+        
+        .orbital-glow {
+            box-shadow: 0 0 25px 5px rgba(123, 79, 255, 0.2);
+        }
+        
+        @keyframes pulse-slow {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+        
+        .btn-hover:hover {
+            background-color: rgba(232, 246, 255, 0.1);
+            border-color: #E8F6FF;
+        }
+        
+        .logo-hover:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body class="bg-space-900 text-ice-50 font-inter m-0 p-0 overflow-hidden" id="bodyElement">
+    
+    <!-- Overlay -->
+    <div style="position: fixed; inset: 0; background-color: rgba(10, 15, 41, 0.5); backdrop-filter: blur(4px);"></div>
+    
+    <!-- Content -->
+    <div style="position: relative; z-index: 10; display: flex; flex-direction: column; height: 100vh;">
+        
+        <!-- Header -->
+        <header class="py-4 px-6 md:px-12">
+            <nav style="display: flex; align-items: center; justify-content: space-between;">
+                <a href="index.html" class="logo-hover" style="display: flex; align-items: center; gap: 12px; background: none; border: none; cursor: pointer; transition: all 0.3s ease; text-decoration: none;">
+                    <!-- Logo Image -->
+                    <img src="./public/logo.png" alt="Aether Vitae Logo" width="48" height="48" style="transition: opacity 0.3s ease;">
+                    <span class="font-orbitron text-xl font-bold tracking-wider text-ice-50">AETHER VITAE</span>
+                </a>
+                <button class="btn-hover font-orbitron text-sm font-semibold text-ice-50 border-2 rounded-full px-6 py-2 transition-all duration-300" 
+                        style="border-color: rgba(232, 246, 255, 0.5); background: transparent; cursor: pointer;">
+                    About Us
+                </button>
+            </nav>
+        </header>
+        
+        <!-- Main Content -->
+        <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 4rem 1rem;">
+            <div id="celestialSystem" style="position: relative; display: flex; align-items: center; justify-content: center; width: 100%; max-width: 48rem; aspect-ratio: 1;">
+                
+                <!-- Central Node - Life -->
+                <div class="celestial-node" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; z-index: 10; cursor: pointer;">
+                    <div class="node-content" style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                        <div class="central-glow" style="width: 16rem; height: 16rem; border-radius: 50%; overflow: hidden;">
+                            <img id="img-life" alt="Life" 
+                                 style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 2px solid transparent;">
+                        </div>
+                        <span class="node-name font-orbitron font-bold tracking-widest uppercase text-base" 
+                              style="color: rgba(232, 246, 255, 0.8); transition: color 0.3s ease;">
+                            Life
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- ISS -->
+                <div class="celestial-node" style="position: absolute; top: 0; left: 50%; transform: translate(-50%, -75%); cursor: pointer;">
+                    <div class="node-content" style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                        <div class="orbital-glow" style="width: 8rem; height: 8rem; border-radius: 50%; overflow: hidden;">
+                            <img id="img-iss" alt="ISS" 
+                                 style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 2px solid transparent;">
+                        </div>
+                        <span class="node-name font-orbitron font-bold tracking-widest uppercase text-sm" 
+                              style="color: rgba(232, 246, 255, 0.8); transition: color 0.3s ease;">
+                            ISS
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Moon -->
+                <div class="celestial-node" style="position: absolute; top: 50%; left: 0; transform: translate(-90%, -30%); cursor: pointer;">
+                    <div class="node-content" style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                        <div class="orbital-glow" style="width: 8rem; height: 8rem; border-radius: 50%; overflow: hidden;">
+                            <img id="img-moon" alt="Moon" 
+                                 style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 2px solid transparent;">
+                        </div>
+                        <span class="node-name font-orbitron font-bold tracking-widest uppercase text-sm" 
+                              style="color: rgba(232, 246, 255, 0.8); transition: color 0.3s ease;">
+                            Moon
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Mars -->
+                <div class="celestial-node" style="position: absolute; top: 50%; right: 0; transform: translate(90%, -30%); cursor: pointer;">
+                    <div class="node-content" style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                        <div class="orbital-glow" style="width: 8rem; height: 8rem; border-radius: 50%; overflow: hidden;">
+                            <img id="img-mars" alt="Mars" 
+                                 style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 2px solid transparent;">
+                        </div>
+                        <span class="node-name font-orbitron font-bold tracking-widest uppercase text-sm" 
+                              style="color: rgba(232, 246, 255, 0.8); transition: color 0.3s ease;">
+                            Mars
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+    
+    <script>
+        // Aplicar las imágenes al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fondo
+            document.getElementById('bodyElement').style.backgroundImage = `url('${IMAGES.background}')`;
+            document.getElementById('bodyElement').style.backgroundSize = 'cover';
+            document.getElementById('bodyElement').style.backgroundPosition = 'center';
+            document.getElementById('bodyElement').style.backgroundAttachment = 'fixed';
+            
+            // Círculos
+            document.getElementById('img-life').src = IMAGES.life;
+            document.getElementById('img-iss').src = IMAGES.iss;
+            document.getElementById('img-moon').src = IMAGES.moon;
+            document.getElementById('img-mars').src = IMAGES.mars;
+        });
+    </script>
+    
+</body>
+</html>
