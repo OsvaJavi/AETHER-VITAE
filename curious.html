@@ -16,12 +16,12 @@
     
     <script>
         const IMAGES = {
-            background: './deep-space.png',  
-            life: './earth.png',      
-            iss: './iss.png',       
-            moon: './full-moon.png',       
-            mars: './mars.png',
-            logo: './logo.png'
+            background: 'deep-space.png',  
+            life: 'earth.png',      
+            iss: 'iss.png',       
+            moon: 'full-moon.png',       
+            mars: 'mars.png',
+            logo: 'logo.png'
         };
         
         tailwind.config = {
@@ -160,7 +160,7 @@
                 </div>
                 
                 <!-- ISS -->
-                <div class="celestial-node" style="position: absolute; top: 0; left: 50%; transform: translate(-50%, -75%); cursor: pointer;">
+                <a href="https://aether-vitae-bot.streamlit.app/" target="_blank" rel="noopener noreferrer" class="celestial-node" style="position: absolute; top: 0; left: 50%; transform: translate(-50%, -75%); cursor: pointer; text-decoration: none;">
                     <div class="node-content" style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
                         <div class="orbital-glow" style="width: 8rem; height: 8rem; border-radius: 50%; overflow: hidden; background: linear-gradient(135deg, #4b5563, #6b7280, #9ca3af);">
                             <img id="img-iss" alt="ISS" 
@@ -171,7 +171,7 @@
                             ISS
                         </span>
                     </div>
-                </div>
+                </a>
                 
                 <!-- Moon -->
                 <div class="celestial-node" style="position: absolute; top: 50%; left: 0; transform: translate(-90%, -30%); cursor: pointer;">
