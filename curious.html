@@ -16,11 +16,12 @@
     
     <script>
         const IMAGES = {
-            background: './public/deep-space.png',  
-            life: './public/earth.png',      
-            iss: './public/iss.png',       
-            moon: './public/full-moon.png',       
-            mars: './public/mars.png'        
+            background: './deep-space.png',  
+            life: './earth.png',      
+            iss: './iss.png',       
+            moon: './full-moon.png',       
+            mars: './mars.png',
+            logo: './logo.png'
         };
         
         tailwind.config = {
@@ -103,6 +104,18 @@
         .logo-hover:hover {
             opacity: 0.8;
         }
+
+        .logo-placeholder {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #7B4FFF, #00FFB2);
+            border-radius: 8px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+        }
     </style>
 </head>
 <body class="bg-space-900 text-ice-50 font-inter m-0 p-0 overflow-hidden" id="bodyElement">
@@ -117,14 +130,14 @@
         <header class="py-4 px-6 md:px-12">
             <nav style="display: flex; align-items: center; justify-content: space-between;">
                 <a href="index.html" class="logo-hover" style="display: flex; align-items: center; gap: 12px; background: none; border: none; cursor: pointer; transition: all 0.3s ease; text-decoration: none;">
-                    <!-- Logo Image -->
-                    <img src="./public/logo.png" alt="Aether Vitae Logo" width="48" height="48" style="transition: opacity 0.3s ease;">
+                    <img id="logo-img" alt="Aether Vitae Logo" width="48" height="48" style="transition: opacity 0.3s ease;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="logo-placeholder">AV</div>
                     <span class="font-orbitron text-xl font-bold tracking-wider text-ice-50">AETHER VITAE</span>
                 </a>
-                <button class="btn-hover font-orbitron text-sm font-semibold text-ice-50 border-2 rounded-full px-6 py-2 transition-all duration-300" 
-                        style="border-color: rgba(232, 246, 255, 0.5); background: transparent; cursor: pointer;">
+                <a href="index.html#about" class="btn-hover font-orbitron text-sm font-semibold text-ice-50 border-2 rounded-full px-6 py-2 transition-all duration-300" 
+                   style="border-color: rgba(232, 246, 255, 0.5); background: transparent; cursor: pointer; text-decoration: none;">
                     About Us
-                </button>
+                </a>
             </nav>
         </header>
         
@@ -135,7 +148,7 @@
                 <!-- Central Node - Life -->
                 <div class="celestial-node" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; z-index: 10; cursor: pointer;">
                     <div class="node-content" style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-                        <div class="central-glow" style="width: 16rem; height: 16rem; border-radius: 50%; overflow: hidden;">
+                        <div class="central-glow" style="width: 16rem; height: 16rem; border-radius: 50%; overflow: hidden; background: linear-gradient(135deg, #1e3a8a, #3b82f6, #10b981);">
                             <img id="img-life" alt="Life" 
                                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 2px solid transparent;">
                         </div>
@@ -149,7 +162,7 @@
                 <!-- ISS -->
                 <div class="celestial-node" style="position: absolute; top: 0; left: 50%; transform: translate(-50%, -75%); cursor: pointer;">
                     <div class="node-content" style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-                        <div class="orbital-glow" style="width: 8rem; height: 8rem; border-radius: 50%; overflow: hidden;">
+                        <div class="orbital-glow" style="width: 8rem; height: 8rem; border-radius: 50%; overflow: hidden; background: linear-gradient(135deg, #4b5563, #6b7280, #9ca3af);">
                             <img id="img-iss" alt="ISS" 
                                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 2px solid transparent;">
                         </div>
@@ -163,7 +176,7 @@
                 <!-- Moon -->
                 <div class="celestial-node" style="position: absolute; top: 50%; left: 0; transform: translate(-90%, -30%); cursor: pointer;">
                     <div class="node-content" style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-                        <div class="orbital-glow" style="width: 8rem; height: 8rem; border-radius: 50%; overflow: hidden;">
+                        <div class="orbital-glow" style="width: 8rem; height: 8rem; border-radius: 50%; overflow: hidden; background: linear-gradient(135deg, #6b7280, #9ca3af, #d1d5db);">
                             <img id="img-moon" alt="Moon" 
                                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 2px solid transparent;">
                         </div>
@@ -177,7 +190,7 @@
                 <!-- Mars -->
                 <div class="celestial-node" style="position: absolute; top: 50%; right: 0; transform: translate(90%, -30%); cursor: pointer;">
                     <div class="node-content" style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-                        <div class="orbital-glow" style="width: 8rem; height: 8rem; border-radius: 50%; overflow: hidden;">
+                        <div class="orbital-glow" style="width: 8rem; height: 8rem; border-radius: 50%; overflow: hidden; background: linear-gradient(135deg, #dc2626, #ef4444, #f97316);">
                             <img id="img-mars" alt="Mars" 
                                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 2px solid transparent;">
                         </div>
@@ -194,7 +207,6 @@
     </div>
     
     <script>
-        // Aplicar las imágenes al cargar la página
         document.addEventListener('DOMContentLoaded', function() {
             // Fondo
             document.getElementById('bodyElement').style.backgroundImage = `url('${IMAGES.background}')`;
@@ -202,7 +214,10 @@
             document.getElementById('bodyElement').style.backgroundPosition = 'center';
             document.getElementById('bodyElement').style.backgroundAttachment = 'fixed';
             
-            // Círculos
+            // Logo
+            document.getElementById('logo-img').src = IMAGES.logo;
+            
+            // Planetas
             document.getElementById('img-life').src = IMAGES.life;
             document.getElementById('img-iss').src = IMAGES.iss;
             document.getElementById('img-moon').src = IMAGES.moon;
