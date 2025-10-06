@@ -1,66 +1,97 @@
 
 ```markdown
-# 🚀 Space Biology Knowledge Engine – NASA Challenge  
+# 🌌 AETHER VITAE – NASA Space Biology Challenge 2025
 
-## 📋 Project Description  
-An **AI-powered intelligent search engine** designed to explore and analyze NASA’s **608 scientific publications on space biology**.  
-It leverages semantic search, automated summarization, and key entity extraction to make scientific knowledge more accessible and actionable.  
+> **“Exploring the intersection of biotechnology and the space frontier.”**
 
-## ✨ Key Features  
+## 🚀 Project Overview
 
-🔍 **Semantic Search:** Find publications by meaning, not just keywords.  
-📝 **Automated Summaries:** Generate concise scientific article summaries using **Groq + Llama**.  
-🏷️ **Entity Extraction:** Automatically identify organisms, space conditions, and key findings.  
-📊 **Interactive Visualizations:** Intuitive dashboard with statistics and charts.  
-⚡ **Real-Time Responses:** Fast processing powered by precomputed embeddings.  
+**AETHER VITAE** is an AI-powered knowledge engine designed to explore and analyze NASA’s **608 scientific publications on space biology**.  
+It integrates a **semantic search engine**, **automated summarization**, and **entity extraction** powered by **Groq + Llama 3** and **Sentence Transformers**, enabling scientists and students to discover insights faster.
 
-## 🛠️ Technologies Used  
+This project includes both a **visual portal** and a **Streamlit AI assistant**, forming an interactive ecosystem for scientific discovery.
 
-- **Frontend:** Streamlit  
-- **AI/LLM:** Groq API (Llama 3)  
-- **Embeddings:** Sentence Transformers (`all-MiniLM-L6-v2`)  
-- **Data Processing:** Pandas, NumPy  
-- **Language:** Python 3.9+  
+## 🧠 Core Features
 
+- 🔍 **Semantic Search:** Find publications by meaning, not just by keywords.  
+- 🧾 **AI Summaries:** Generate concise, three-point summaries using LLMs.  
+- 🧬 **Entity Extraction:** Identify organisms, conditions, and findings automatically.  
+- 📊 **Interactive Visualizations:** Dashboard with statistics and graphs.  
+- ⚡ **Real-Time Response:** Fast inference powered by precomputed embeddings.  
+- 🌕 **Dynamic Portal:** Users can enter through celestial nodes (Moon, Mars, ISS, Life) that redirect to AI-driven searches.
 
-## 📁 Project Structure  
+## 🛠️ Technologies Used
 
-/nasa-knowledge-engine
-├── data/
-│   ├── publications.csv          # NASA’s 608 space biology papers
-│   └── corpus_embeddings.npy      # Precomputed embeddings
-├── notebooks/
-│   └── exploration.ipynb          # Exploratory analysis (optional)
-├── app.py                         # Main Streamlit app
-├── create_embeddings.py           # Embedding generation script
-├── requirements.txt               # Project dependencies
-├── .env                           # API keys (do not upload)
-├── .gitignore                     # Ignored files
-└── README.md                      # This file
+| Layer | Technologies |
+|-------|---------------|
+| **Frontend (Portal)** | HTML, TailwindCSS, JavaScript |
+| **AI Backend** | Python 3.9+, Groq API (Llama 3) |
+| **Framework** | Streamlit |
+| **Embeddings** | Sentence Transformers (`all-MiniLM-L6-v2`) |
+| **Data Handling** | Pandas, NumPy |
+| **Automation** | Custom Python script for NASA paper download |
 
+---
 
-## 🚀 Installation & Setup  
+## 📁 Project Structure
 
-### 1. Clone the Repository  
-```bash
-git clone https://github.com/your-username/nasa-knowledge-engine.git
-cd nasa-knowledge-engine
+```
+
+AETHER-VITAE/
+├── 📂 data/
+│   ├── publications.csv           # NASA’s 608 space biology papers metadata
+│   ├── corpus_embeddings.npy      # Precomputed semantic embeddings
+│   └── nasa_pdfs/                 # Folder for downloaded PDF files
+│
+├── 📂 notebooks/
+│   └── exploration.ipynb          # Exploratory data analysis (optional)
+│
+├── 📂 web/
+│   ├── index.html                 # Landing page ("Aether Vitae Portal")
+│   ├── curious.html               # Educational/Space Explorer page
+│   ├── about.html                 # About / Contact section
+│   ├── public/
+│   │   ├── logo.png               # Project logo
+│   │   ├── deep-space.png         # Background image
+│   │   ├── iss.png, mars.png, moon.png, earth.png  # Celestial icons
+│   │   └── favicon.ico            # Browser icon
+│   └── styles.css (optional)      # Extracted custom CSS
+│
+├── 📂 bot/
+│   ├── app.py                     # Main Streamlit AI app
+│   ├── create_embeddings.py       # Script to generate text embeddings
+│   ├── download_papers.py         # Automated NASA paper downloader
+│   └── utils/                     # Helper functions (search, summarization, etc.)
+│
+├── requirements.txt               # Python dependencies
+├── .env                           # Environment variables (API keys)
+├── .gitignore                     # Ignored files and folders
+└── README.md                      # This document
+
 ````
 
-### 2. Create a Virtual Environment
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/OsvaJavi/AETHER-VITAE.git
+cd AETHER-VITAE
+````
+
+### 2️⃣ Create a Virtual Environment
 
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
-### 3. Install Dependencies
+### 3️⃣ Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Configure Groq API Key
+### 4️⃣ Configure Environment Variables
 
 Create a `.env` file in the project root:
 
@@ -68,11 +99,13 @@ Create a `.env` file in the project root:
 GROQ_API_KEY=your-api-key-here
 ```
 
-💡 Get your free API key at [console.groq.com](https://console.groq.com)
+💡 Get a free API key at [https://console.groq.com](https://console.groq.com)
 
-### 5. Prepare the Data
+## 🧩 Data Preparation
 
-Place your `publications.csv` file inside the `/data` folder with the following columns:
+### Option A – Use Existing Data
+
+Place your `publications.csv` file inside the `/data` folder with these columns:
 
 | Column        | Description           |
 | ------------- | --------------------- |
@@ -83,71 +116,133 @@ Place your `publications.csv` file inside the `/data` folder with the following 
 | abstract_text | Abstract or summary   |
 | source_url    | Source URL (optional) |
 
-### 6. Generate Embeddings
+### Option B – Download from NASA Automatically
+
+Run the provided script to download all papers and generate the CSV:
 
 ```bash
-python create_embeddings.py
+python bot/download_papers.py
 ```
 
-This process may take a few minutes and will generate the `corpus_embeddings.npy` file.
+## 🧮 Generate Embeddings
 
-### 7. Run the Application
+Convert abstracts into semantic vectors using Sentence Transformers:
 
 ```bash
-streamlit run app.py
+python bot/create_embeddings.py
 ```
 
-The app will automatically open in your browser at [http://localhost:8501](http://localhost:8501).
+This creates `data/corpus_embeddings.npy` used for fast semantic search.
 
-## 💡 How to Use the App
+## 🛰️ Run the Streamlit App
 
-* **Search:** Type a natural language query (e.g. *“effects of microgravity on plants”*).
-* **Explore Results:** Browse the most relevant publications by semantic similarity.
-* **Read Summaries:** View automatically generated 3-point summaries.
-* **View Entities:** Check extracted organisms, space conditions, and key findings.
-* **Filter:** Refine your search by year, organism, or other criteria.
+Launch the intelligent search assistant:
 
+```bash
+streamlit run bot/app.py
+```
 
-## 📊 Example Queries
+Your app will open at **[http://localhost:8501](http://localhost:8501)**
 
-* “How does space radiation affect DNA?”
-* “Plant experiments in microgravity”
-* “Changes in astronauts’ immune systems”
-* “Studies with *C. elegans* in space”
+To deploy it publicly, visit **[streamlit.io/cloud](https://streamlit.io/cloud)** and connect your GitHub repository.
 
+## 💻 How to Use
 
-## 🎯 Technical Challenges Solved
+1. **Visit the Portal:**
+   Open `web/index.html` in your browser.
+   Click on any celestial node (🌕 Moon, 🔴 Mars, 🛰 ISS, 🌍 Life).
 
-* **Efficient Processing:** Precomputed embeddings and Streamlit caching.
-* **Prompt Engineering:** Tailored prompts for summarization and entity extraction.
-* **Semantic Search:** Cosine similarity implementation for relevant results.
-* **User Experience:** Intuitive UI with asynchronous loading and visual feedback.
+2. **Automatic Query:**
+   Clicking a node redirects you to
+   [https://aether-vitae-bot.streamlit.app](https://aether-vitae-bot.streamlit.app)
+   preloaded with a query like “moon” or “mars”.
 
+3. **Explore Results:**
 
-## 🚧 Future Improvements
+   * View NASA publications by meaning (semantic similarity).
+   * Read auto-generated summaries and extracted key entities.
+   * Filter by organism, condition, or year.
 
-* Advanced filters for organism type and space condition.
-* Relationship network visualization between publications.
-* PDF export of search results.
-* Interactive chat with the full corpus.
-* Multi-language support.
+## 🧠 Example Queries
 
+* “How does microgravity affect human cells?”
+* “Radiation impact on DNA during spaceflight”
+* “Experiments with *C. elegans* on the ISS”
+* “Plant growth under lunar gravity simulations”
 
-## 👥 Author
+## 🎯 Challenges Solved
 
-Developed for the **NASA Space Biology Challenge – Guadalajara 2025**
+✅ **Efficient Search:** Precomputed embeddings enable sub-second retrieval.
+✅ **Contextual Summarization:** LLM-powered, domain-specific synthesis.
+✅ **Entity Extraction:** Structured insights via JSON output.
+✅ **Educational Gateway:** Engaging visual interface bridging science and AI.
+
+## 🧭 Future Improvements
+
+* 🔍 Advanced filters by organism and condition type
+* 🕸️ Knowledge graph of interconnected studies
+* 🗂️ Export search results as PDF or CSV
+* 💬 Interactive chatbot using the full corpus
+* 🌐 Multi-language support (EN/ES)
+
+## 👨‍🚀 Authors
+
+Developed by **Team Aether Vitae**
+for the **NASA Space Biology Challenge – Guadalajara 2025**
+
+Víctor Hugo López Martín
+
+🎯 Project Manager & Team Coordinator
+Project planning, coordination, and time management. Oversees documentation and NASA Challenge submissions.
+📧 victor.lmartin@alumnos.udg.mx
+
+Martín Ángel Carrizales Piña
+
+🧠 Data Scientist
+Develops and trains the machine learning models for biosignature detection and data interpretation.
+📧 martin.carrizalez0823@alumnos.udg.mx
+
+Miguel Isay Morales Cortés
+
+💡 Marketing & Branding Lead
+Designs and manages the project’s branding, social media presence, and official website.
+📧 isay.morales@alumnos.udg.mx
+
+Óscar Vicente Coronado Orozco
+
+📊 Data Engineer
+Builds the code infrastructure to extract and process scientific articles forming the project’s core database.
+📧 oscar.coronado6444@alumnos.udg.mx
+
+Oswaldo Javier Rojas del Toro
+
+⚙️ Operations & AI Developer
+Supports deployment, model integration, and repository maintenance on GitHub.
+📧 oswaldo.rojas6815@alumnos.udg.mx
+
+Miguel Omar Flores García
+
+🔍 Data Acquisition Specialist
+Collects and curates scientific data sources manually to feed the training datasets.
+📧 miguel.flores6629@alumnos.udg.mx
 
 
 ## 📄 License
 
-This project is open source and available under the **MIT License**.
+This project is open-source under the **MIT License**.
+
 
 ## 🙏 Acknowledgments
 
-* **NASA** for providing access to scientific publications.
-* **Groq** for its ultra-fast LLM API.
-* **Streamlit community** for their excellent tools.
+* **NASA** – For providing open access to the Space Biology dataset
+* **Groq** – For enabling fast LLM inference
+* **Streamlit Community** – For intuitive and powerful web tools
+* **University of Guadalajara (CUGDL)** – For supporting the initiative
 
 
+### 🌠 Live Demo
 
+🔗 **Portal:** [https://aether-vitae.netlify.app/](#) *(optional)*
+🔗 **AI Assistant:** [https://aether-vitae-bot.streamlit.app/](https://aether-vitae-bot.streamlit.app/)
 
+```
